@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Hata Girişi - Üretim Takip Sistemi{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/defect_entry.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="defect-entry-wrapper">
+    <h1>Hata Girişi</h1>
+
+    <form id="defectEntryForm">
+
+        <!-- TV Seri Numarası -->
+        <div class="form-group">
+            <label for="tv_serial">TV Seri No <span style="color:red;">*</span></label>
+            <input type="text" id="tv_serial" name="tv_serial" required placeholder="TV seri numarasını girin">
+        </div>
+
+        <!-- Defect seçimi -->
+        <div class="form-group">
+            <label for="defect_select">Hata Seçimi <span style="color:red;">*</span></label>
+            <div class="defect-select-wrapper">
+                <select id="defect_select" name="defect_select">
+                    <option value="">Seçiniz</option>
+                </select>
+                <button type="button" class="add-defect-btn" id="addDefectBtn">Hata Ekle</button>
+            </div>
+            <div id="defect-tags" class="defect-tags"></div>
+        </div>
+
+        <!-- Situation -->
+        <div class="form-group">
+            <label>Durum <span style="color:red;">*</span></label>
+            <div class="situation-buttons">
+                <button type="button" class="rework-btn" data-value="REWORK">Rework</button>
+                <button type="button" class="scrap-btn" data-value="HURDA">Hurda</button>
+            </div>
+        </div>
+
+
+        <!-- Pin -->
+        <div class="form-group">
+            <label for="pin">Pin <span style="color:red;">*</span></label>
+            <input type="password" id="pin" name="pin" required placeholder="Pininizi girin">
+        </div>
+
+        <!-- Form Actions -->
+        <div class="form-actions">
+            <button type="submit" class="submit-btn">Kaydet</button>
+            <button type="button" class="back-btn" id="backBtn">Geri</button>
+        </div>
+
+        <p id="error-message"></p>
+    </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/defect_entry.js') }}"></script>
+{% endblock %}

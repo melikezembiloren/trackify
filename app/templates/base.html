@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Üretim Takip Sistemi{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo.png') }}">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <div class="background"></div>
+
+    <header class="main-header">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="header-logo">
+        <h1 class="system-title">Üretim Takip Sistemi</h1>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

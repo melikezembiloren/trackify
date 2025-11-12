@@ -1,0 +1,132 @@
+body, * { font-family:'Roboto', sans-serif; box-sizing:border-box; margin:0; }
+
+html, body {
+    height: 100%;
+    overflow-y: auto !important;
+}
+
+
+/* ===== HEADER ===== */
+.main-header {
+    position: fixed;
+    top: 50px;
+    left: 50px;
+    display: flex;
+    align-items: center;
+    gap: 70px;
+}
+
+.header-logo {
+    width: 200px;
+    height: auto;
+}
+
+.system-title {
+    display: none;
+}
+
+.defect-entry-wrapper {
+    max-width:1300px;
+    width:80%;
+    margin:50px auto;
+    padding:20px 30px;
+    background:#fff;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    display:flex;
+    flex-direction:column;
+}
+
+.defect-entry-wrapper h1 {
+    text-align:center; color:#124f90; font-size:36px; margin-bottom:30px;
+}
+
+.search-wrapper {
+    display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; gap:10px;
+}
+
+#search { flex:1; padding:10px 15px; border:2px solid #0f3e75; border-radius:8px; font-size:16px; }
+#listAllBtn { padding:10px 20px; background:#124f90; color:#fff; border:none; border-radius:8px; cursor:pointer; }
+#listAllBtn:hover { background:#0f3e75; }
+
+table { width:100%; border-collapse:collapse; }
+table th, table td { padding:12px 15px; border:1px solid #124f90; text-align:left; }
+table th { background:#e7f0ff; font-weight:700; color:#124f90; }
+
+.success-popup {
+    display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+    justify-content:center; align-items:center; background:rgba(0,0,0,0.5); z-index:9999;
+}
+
+.success-popup .popup-content {
+    background:#fff; padding:20px; border-radius:15px; max-width:700px; width:90%; max-height:90%; overflow-y:auto; border:2px solid #124f90;
+}
+
+.popup-table td:first-child { font-weight:700; color:#124f90; width:35%; }
+.back-btn { padding:10px 20px; background:#6c757d; color:#fff; border:none; border-radius:8px; cursor:pointer; }
+.back-btn:hover { background:#495057; }
+
+/* ==== DURUM TAGLERİ ==== */
+.status-tag {
+    display:inline-block;
+    padding:5px 15px;
+    border-radius:10px;
+    font-weight:600;
+    color:#fff;
+    text-transform:uppercase;
+    font-size:17px;
+}
+
+.status-hurda { background:#df2d27; }   /* kırmızı */
+.status-rework { background:#fd8230; }  /* turuncu */
+.status-ok { background:#f2b500; } /* sarı, yazı siyah */
+.status-closed { background:#5cb85c; }  /* yeşil */
+
+.success-popup {
+    display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+    justify-content:center; align-items:center; background:rgba(0,0,0,0.5); z-index:9999;
+}
+
+.success-popup .popup-content {
+    background:#fff; padding:20px; border-radius:15px; max-width:700px; width:90%; max-height:90%; overflow-y:auto; border:2px solid #124f90;
+}
+
+.popup-table td:first-child { font-weight:700; color:#124f90; width:35%; }
+.back-btn { padding:10px 20px; background:#6c757d; color:#fff; border:none; border-radius:8px; cursor:pointer; }
+.back-btn:hover { background:#495057; }
+
+#defectTable th:first-child,
+#defectTable td:first-child {
+    display: none;
+}
+
+/* ===== GERİ BUTONU (SABİT SOL ALTA) ===== */
+.back-btn-fixed {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background: #124f90;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    z-index: 10000;
+}
+
+.back-btn-fixed:hover {
+    background: #0f3e75;
+    transform: scale(1.05);
+}
+
+
+
+@media (max-width:600px){
+    .search-wrapper { flex-direction:column; }
+    #search, #listAllBtn { width:100%; }
+    table th, table td { font-size:14px; padding:8px; }
+}

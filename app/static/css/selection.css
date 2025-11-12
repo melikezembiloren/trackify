@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    color: #000; /* Tüm yazılar siyah */
+    position: relative;
+    background: #ffffff; /* Beyaz arka plan */
+}
+
+/* Arka plan animasyonu kaldırıldı */
+.background {
+    display: none;
+}
+
+.main-header {
+    position: fixed;
+    top: 50px;
+    left: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+}
+
+.header-logo {
+    width: 200px;
+    height: auto;
+}
+
+.system-title {
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 35px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #124f90; /* Başlık mavisi */
+}
+
+/* 🔹 Line etiketi (örnek: Hata Seçimi / Line 1) */
+.line-label {
+    font-size: 70px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 60px;
+    color: #124f90; /* Görünür mavi */
+    text-shadow: none; /* Gölgeyi kaldır, daha net görünür */
+}
+
+/* Butonları ortala */
+.button-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 50px;
+}
+
+.button-row {
+    display: flex;
+    gap: 80px;
+}
+
+/* 🔹 Buton görünümü */
+.action-btn {
+    width: 400px;
+    height: 250px;
+    font-size: 36px;
+    font-weight: 700;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #124f90, #0f3e75);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.action-btn:hover {
+    background: linear-gradient(135deg, #3b82f6, #124f90);
+    transform: translateY(-5px);
+}
+
+/* 🔹 Hata seçimi veya diğer başlıkların görünmesi için */
+h1, h2, h3, h4, h5, h6, label, span, p {
+    color: #000 !important;
+}
+
+.back-btn-fixed {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background: #124f90;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    z-index: 10000;
+}
+
+.back-btn-fixed:hover {
+    background: #0f3e75;
+    transform: scale(1.05);
+}
+
+
+/* Mobil uyum */
+@media (max-width: 500px) {
+    .system-title {
+        font-size: 28px;
+    }
+    .header-logo {
+        width: 80px;
+    }
+    .line-label {
+        font-size: 40px;
+        margin-bottom: 40px;
+    }
+    .button-row {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .action-btn {
+        width: 80%;
+        height: 120px;
+        font-size: 18px;
+    }
+}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Giriş Yap - Üretim Takip Sistemi{% endblock %}
+
+{% block content %}
+<div class="login-wrapper">
+    <form id="authForm" class="login-form">
+        <label for="username">Kullanıcı Adı / Line Adı</label>
+        <input type="text" id="username" name="username" required placeholder="Kullanıcı veya Line adınızı girin">
+
+        <label for="password">Şifre</label>
+        <input type="password" id="password" name="password" required placeholder="Şifrenizi girin">
+
+        <div class="button-group">
+            <button type="button" id="userLoginBtn" class="user-btn">Kullanıcı Girişi</button>
+            <button type="button" id="lineLoginBtn" class="line-btn">Line Girişi</button>
+        </div>
+
+        <p id="error-message"></p>
+    </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+{% endblock %}

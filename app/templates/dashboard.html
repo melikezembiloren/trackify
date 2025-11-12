@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-wx0x4T1lL6kZ6Oqsu5+TkLhUqslkzQ5P1P8EY63sDkFpC+9TXz6zWf0yW3xg54oP8L6uQvK1v0mI5YFz3w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <button class="sidebar-btn" data-tab="user" title="Profil">
+                <i class="fas fa-user fa-2x"></i>
+            </button>
+            <button class="sidebar-btn" data-tab="tv" title="TV/Lines">
+                <i class="fas fa-tv fa-2x"></i>
+            </button>
+            <button class="sidebar-btn" data-tab="settings" title="Ayarlar">
+                <i class="fas fa-cog fa-2x"></i>
+            </button>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Profil -->
+            <div id="user-tab" class="tab-content">
+                <h2>Profil Bilgileri</h2>
+                <div id="profile-info"></div>
+            </div>
+
+            <!-- TV / Line Tab -->
+            <div id="tv-tab" class="tab-content">
+                <h2>Line Hedefleri</h2>
+                <div id="line-table-container"></div>
+                <div id="line-charts" class="charts-container"></div>
+            </div>
+
+            <!-- Ayarlar -->
+            <div id="settings-tab" class="tab-content">
+                <h2>Ayarlar</h2>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>

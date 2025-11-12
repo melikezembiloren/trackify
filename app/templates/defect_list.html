@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}Defect Listesi{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/defect_list.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="defect-entry-wrapper">
+    <h1>Defect Listesi</h1>
+
+    <!-- Arama ve Buton -->
+    <div class="search-wrapper">
+        <input type="text" id="search" placeholder="TV modeli veya ID ara..." onkeyup="filterTable()">
+        <button id="listAllBtn">Tümünü Listele</button>
+            
+    <!-- Geri Butonu -->
+        <button id="backButton" class="back-btn-fixed">← Geri</button>
+    </div>
+
+    <!-- Defect Tablosu -->
+    <table id="defectTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>TV Modeli</th>
+                <th>TV Seri No</th>
+                <th>Hata Kodu</th>
+                <th>Hata Adı</th>
+                <th>Hata Açıklaması</th>
+                <th>Durum</th>
+                <th>Oluşturulma Tarihi</th>
+                <th>Oluşturan Operatör</th>
+                <th>Rework Yapan Operatör</th>
+                <th>Sorumlu Operatör</th>
+                
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<!-- Modal (Opsiyonel: defect detayları için) -->
+<div class="success-popup" id="defectModal">
+    <div class="popup-content">
+        <h2>Defect Detayları</h2>
+        <table class="popup-table">
+            <tr><td>TV Modeli</td><td id="modalTvModel">-</td></tr>
+            <tr><td>Seri No</td><td id="modalTvSerial">-</td></tr>
+            <tr><td>Hata Adı</td><td id="modalDefectName">-</td></tr>
+            <tr><td>Hata Açıklaması</td><td id="modalDefectDesc">-</td></tr>
+            <tr><td>Durum</td><td id="modalStatus">-</td></tr>
+            <tr><td>Oluşturan</td><td id="modalFoundBy">-</td></tr>
+            <tr><td>Rework Yapan</td><td id="modalReworkBy">-</td></tr>
+            <tr><td>Sorumlu</td><td id="modalCausedBy">-</td></tr>
+            
+        </table>
+        <button id="closeDefectBtn" class="back-btn">Kapat</button>
+    </div>
+
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/defect_list.js') }}"></script>
+{% endblock %}

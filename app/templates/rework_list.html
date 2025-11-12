@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}Rework Listesi{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/rework.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="defect-entry-wrapper">
+    <!-- Başlık -->
+    <h1>Rework Listesi</h1>
+
+    <!-- Arama ve Buton Wrapper -->
+    <div class="search-wrapper">
+        <input type="text" id="search" placeholder="TV modeli veya ID ara..." onkeyup="filterTable()">
+        <button id="listAllBtn" onclick="listAllDefects()">Tümünü Listele</button>        
+        <!-- Geri Butonu -->
+        <button id="backButton" class="back-btn-fixed">← Geri</button>
+    </div>
+
+    <!-- Rework Tablosu -->
+    <table id="reworkTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>TV Modeli</th>
+                <th>TV Seri No</th>
+                <th>Hata Kodu</th>
+                <th>Hata Adı</th>
+                <th>Hata Açıklaması</th>
+                <th>Durum</th>
+                <th>Oluşturulma Tarihi</th>
+                <th>İşlem</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<!-- Düzenleme Modalı -->
+<div class="success-popup" id="reworkModal" style="display:none;">
+    <div class="popup-content">
+        <h2>Defect Düzenle</h2>
+        <table class="popup-table">
+            <tr><td>TV Modeli</td><td id="modalTvModel">-</td></tr>
+            <tr><td>Seri No</td><td id="modalTvSerial">-</td></tr>
+            <tr><td>Hata Adı</td><td id="modalDefectName">-</td></tr>
+            <tr><td>Hata Açıklaması</td><td id="modalDefectDesc">-</td></tr>
+        </table>
+
+        <label>Rework Operatör PIN</label>
+        <input type="password" id="rework_by_pin" class="form-control mb-2" placeholder="PIN girin">
+
+        <label>Çözüm</label>
+        <select id="solutionSelect" class="form-select mb-2"></select>
+
+        <label>Ek Açıklama</label>
+        <textarea id="solution_text" class="form-control mb-2" placeholder="Opsiyonel açıklama"></textarea>
+
+        <label>Hataya Sebep Olan Operatör (Opsiyonel)</label>
+        <input type="text" id="caused_by_name" class="form-control mb-2" placeholder="Ad Soyad">
+
+        <div class="form-actions">
+            <button class="submit-btn" onclick="submitRework()">Kaydet</button>
+            <button id="closeReworkBtn" class="back-btn">İptal</button>
+        </div>
+
+        <p id="error-message"></p>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/rework.js') }}"></script>
+{% endblock %}
