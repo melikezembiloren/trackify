@@ -1,53 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
+    <!-- FontAwesome ikonlar için -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
-    <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-wx0x4T1lL6kZ6Oqsu5+TkLhUqslkzQ5P1P8EY63sDkFpC+9TXz6zWf0yW3xg54oP8L6uQvK1v0mI5YFz3w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="dashboard">
-
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <button class="sidebar-btn" data-tab="user" title="Profil">
-                <i class="fas fa-user fa-2x"></i>
-            </button>
-            <button class="sidebar-btn" data-tab="tv" title="TV/Lines">
-                <i class="fas fa-tv fa-2x"></i>
-            </button>
-            <button class="sidebar-btn" data-tab="settings" title="Ayarlar">
-                <i class="fas fa-cog fa-2x"></i>
-            </button>
-        </aside>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Profil -->
-            <div id="user-tab" class="tab-content">
-                <h2>Profil Bilgileri</h2>
-                <div id="profile-info"></div>
+    <div class="sidebar" id="sidebar">
+        <!-- Profil -->
+        <div class="profile-section">
+        <img src="{{ url_for('static', filename='images/user-profile.png') }}" 
+            alt="profile" 
+            class="profile-img" />
+        <div class="profile-info">
+                <h3 id="user_name">Kullanıcı</h3>
+                <p id="user_title">Unvan</p>
             </div>
+        </div>
 
-            <!-- TV / Line Tab -->
-            <div id="tv-tab" class="tab-content">
-                <h2>Line Hedefleri</h2>
-                <div id="line-table-container"></div>
-                <div id="line-charts" class="charts-container"></div>
-            </div>
+        <!-- Menü -->
+        <ul class="menu">
+            <li class="menu-item">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </li>
+            <li class="menu-item">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+            </li>
+            <li class="menu-item">
+                <i class="fas fa-user"></i>
+                <span>Profil</span>
+            </li>
+            <li class="menu-item">
+                <i class="fas fa-tv"></i>
+                <span>Hatlar</span>
+            </li>
+            <li class="menu-item">
+                <i class="fas fa-users"></i>
+                <span>Operatörler</span>
+            </li>
+        </ul>
 
-            <!-- Ayarlar -->
-            <div id="settings-tab" class="tab-content">
-                <h2>Ayarlar</h2>
+        <!-- Alt Bölüm -->
+        <div class="bottom-section">
+            <div class="menu-item">
+                <i class="fas fa-question-circle"></i>
+                <span>Yardım</span>
             </div>
-        </main>
+            <div class="menu-item">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Çıkış</span>
+            </div>
+        </div>
     </div>
 
-    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+    <script src="dashboard.js"></script>
 </body>
 </html>

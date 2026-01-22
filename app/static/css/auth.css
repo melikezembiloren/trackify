@@ -1,169 +1,192 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
-body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    height: 100vh;
-    overflow: hidden;
-    color: #333;
-    position: relative;
+/* ===== RESET ===== */
+* {
+    box-sizing: border-box;
 }
 
-/* ===== ARKA PLAN ===== */
-.background {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%;
+html, body {
     height: 100%;
+    margin: 0;
+}
+
+/* ===== BASE ===== */
+body {
+    font-family: 'Roboto', sans-serif;
     background: #ffffff;
-    z-index: -1;
+    color: #333;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 /* ===== HEADER ===== */
 .main-header {
-    position: fixed;
-    top: 50px;
-    left: 50px;
-    right: 50px;
+    position: sticky;
+    top: 0;
+    height: 120px;
+    padding: 0 50px;
+    background: #ffffff;
+    z-index: 10;
+
     display: flex;
     align-items: center;
-    justify-content: space-between;
 }
 
 .header-logo {
-    width: 300px;
+    width: 240px;
     height: auto;
 }
 
+.header-right {
+    width: 240px; /* logo ile aynı genişlik */
+}
+
+/* GERÇEK ORTA */
 .system-title {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 45px;
+    font-size: 42px;
     font-weight: 700;
-    letter-spacing: 0.5px;
     color: #0f3e75;
+    white-space: nowrap;
+}
+
+
+/* ===== LOGIN WRAPPER ===== */
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 120px;
+    min-height: 100%;
 }
 
 /* ===== LOGIN FORM ===== */
-.login-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
-
 .login-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     width: 600px;
-    height: 500px;
-    background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
+    max-width: 92%;
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 20px;
     padding: 50px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
 }
 
+/* ===== FORM ELEMENTS ===== */
 .login-form label {
     display: block;
-    width: 100%;
-    text-align: left;
-    font-weight: 500;
     margin-bottom: 10px;
     font-size: 18px;
+    font-weight: 500;
     color: #444;
 }
 
 .login-form input {
     width: 100%;
     padding: 18px;
-    margin-bottom: 25px;
+    margin-bottom: 24px;
     border-radius: 10px;
     border: 1px solid #ccc;
-    outline: none;
     font-size: 18px;
-    box-sizing: border-box;
-    background-color: #fff;
-    color: #333;
+    outline: none;
 }
 
 .login-form input:focus {
-    box-shadow: 0 0 0 2px #d94fe3;
+    outline: 4px solid #3b82f6;
+    outline-offset: 2px;
 }
 
-/* ===== BUTONLAR ===== */
+/* ===== BUTTONS ===== */
 .button-group {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 100%;
     margin-top: 20px;
 }
 
-.user-btn, .line-btn {
+.user-btn,
+.line-btn {
     width: 100%;
     border: none;
-    padding: 16px;
-    border-radius: 10px;
-    color: #fff;
+    border-radius: 12px;
+    padding: 18px;
     font-size: 18px;
     font-weight: 700;
+    color: #ffffff;
     cursor: pointer;
-    transition: all 0.3s ease;
 }
 
-/* Birinci buton (login) - koyu mavi */
 .user-btn {
     background-color: #124f90;
 }
-.user-btn:hover {
-    background-color: #0f3e75;
-}
 
-/* İkinci buton (line giriş) - açık mavi */
 .line-btn {
     background-color: #3b82f6;
 }
-.line-btn:hover {
-    background-color: #2563eb;
+
+/* ===== FOCUS FOR TV ===== */
+button:focus {
+    outline: 4px solid #00ffcc;
+    outline-offset: 2px;
 }
 
-
-/* Hata mesajı */
+/* ===== ERROR ===== */
 #error-message {
-    color: #ff5c5c;
-    font-size: 16px;
     margin-top: 15px;
     min-height: 20px;
+    font-size: 16px;
+    color: #ff5c5c;
     text-align: center;
 }
 
-/* Mobil uyum */
-@media (max-width: 500px) {
+/* ===== TV MODE ===== */
+@media (min-width: 1200px) and (pointer: coarse) {
     .login-form {
-        width: 90%;
-        height: auto;
-        padding: 30px;
+        width: 720px;
+        padding: 60px;
     }
 
-    .system-title {
+    .login-form label {
         font-size: 22px;
     }
 
-    .login-form label, .login-form input {
-        font-size: 16px;
+    .login-form input {
+        font-size: 22px;
+        padding: 22px;
     }
 
-    .user-btn, .line-btn {
-        font-size: 16px;
-        padding: 12px;
+    .user-btn,
+    .line-btn {
+        font-size: 22px;
+        padding: 22px;
+    }
+
+    .system-title {
+        font-size: 48px;
+    }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 600px) {
+    .main-header {
+        padding: 20px;
+        flex-direction: column;
+        gap: 10px;
     }
 
     .header-logo {
-        width: 80px;
+        width: 120px;
+    }
+
+    .system-title {
+        font-size: 24px;
+    }
+
+    .login-wrapper {
+        padding-top: 80px;
+    }
+
+    .login-form {
+        padding: 30px;
     }
 }

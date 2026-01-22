@@ -4,19 +4,55 @@
 
 {% block content %}
 <div class="login-wrapper">
-    <form id="authForm" class="login-form">
+    <form
+        id="authForm"
+        class="login-form"
+        method="post"
+        novalidate
+    >
         <label for="username">Kullanıcı Adı / Line Adı</label>
-        <input type="text" id="username" name="username" required placeholder="Kullanıcı veya Line adınızı girin">
+        <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Kullanıcı veya Line adınızı girin"
+            autocomplete="off"
+            tabindex="1"
+            required
+        >
 
         <label for="password">Şifre</label>
-        <input type="password" id="password" name="password" required placeholder="Şifrenizi girin">
+        <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Şifrenizi girin"
+            autocomplete="off"
+            tabindex="2"
+            required
+        >
 
         <div class="button-group">
-            <button type="button" id="userLoginBtn" class="user-btn">Kullanıcı Girişi</button>
-            <button type="button" id="lineLoginBtn" class="line-btn">Line Girişi</button>
+            <button
+                type="button"
+                id="userLoginBtn"
+                class="user-btn"
+                tabindex="3"
+            >
+                Kullanıcı Girişi
+            </button>
+
+            <button
+                type="button"
+                id="lineLoginBtn"
+                class="line-btn"
+                tabindex="4"
+            >
+                Line Girişi
+            </button>
         </div>
 
-        <p id="error-message"></p>
+        <p id="error-message" aria-live="polite"></p>
     </form>
 </div>
 {% endblock %}
